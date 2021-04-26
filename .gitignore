@@ -1,3 +1,4 @@
 # Project exclude paths
 /Application/target/
 /logs/
+/.idea/
