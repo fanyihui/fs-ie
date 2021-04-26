@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fs:routes xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fs="http://camel.apache.org/schema/spring"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+    <fs:route id="adt_hl7v2">
+        <fs:from id="hl7v2" uri="netty:tcp://localhost:8888?sync=true&amp;encoders=#hl7Encoder&amp;decoders=#hl7Decoder"/>
+        <fs:log message="${in.body}"/>
+        <fs:unmarshal>
+            <fs:hl7/>
+        </fs:unmarshal>
+        <fs:log message="${in.body}"/>
+    </fs:route>
+
+</fs:routes>
