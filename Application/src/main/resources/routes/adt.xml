@@ -19,7 +19,13 @@
         <fs:unmarshal id="解析HL7">
             <fs:hl7/>
         </fs:unmarshal>
+        <fs:bean ref="hl7ConvertToXML" method="convertToXML"/>
         <fs:bean id="发送ACK" ref="ackProcessor" method="sendAck"/>
+        <fs:choice>
+            <fs:when>
+                <fs:simple>${header.CamelHL7TriggerEvent} == 'A01'</fs:simple>
+            </fs:when>
+        </fs:choice>
     </fs:route>
 
 </fs:routes>
