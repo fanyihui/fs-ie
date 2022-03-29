@@ -8,18 +8,18 @@
 
     <fs:route id="adt_hl7v2">
         <fs:from id="hl7v2" uri="netty:tcp://localhost:8888?sync=true&amp;encoders=#hl7Encoder&amp;decoders=#hl7Decoder"/>
-        <fs:onException>
+        <fs:onException id="异常处理">
             <fs:exception>ca.uhn.hl7v2.HL7Exception</fs:exception>
             <fs:redeliveryPolicy maximumRedeliveries="0"/>
             <fs:handled>
                 <fs:constant>true</fs:constant>
             </fs:handled>
-            <fs:bean ref="ackProcessor" method="sendErrorAck"/>
+            <fs:bean id="发送异常应答" ref="ackProcessor" method="sendErrorAck"/>
         </fs:onException>
         <fs:unmarshal id="解析HL7">
             <fs:hl7/>
         </fs:unmarshal>
-        <fs:bean ref="hl7ConvertToXML" method="convertToXML"/>
+        <!--fs:bean ref="hL7ConvertToXML" method="convertToXML"/-->
         <fs:bean id="发送ACK" ref="ackProcessor" method="sendAck"/>
         <fs:choice>
             <fs:when>

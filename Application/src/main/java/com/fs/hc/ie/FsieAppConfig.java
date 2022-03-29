@@ -28,4 +28,5 @@ public class FsieAppConfig {
         hl7Codec.setConvertLFtoCR(true);
         return hl7Codec;
     }
+
 }
