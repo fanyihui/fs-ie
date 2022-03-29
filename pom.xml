@@ -37,6 +37,7 @@
         <mongodb.driver.version>4.1.0</mongodb.driver.version>
         <swagger.ui.version>2.2.10</swagger.ui.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cxf.version>3.5.1</cxf.version>
     </properties>
 
     <dependencyManagement>
