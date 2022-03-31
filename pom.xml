@@ -24,6 +24,7 @@
     <modules>
         <module>Application</module>
         <module>Components</module>
+        <module>fsie-core</module>
     </modules>
 
     <properties>

@@ -24,7 +24,7 @@
     <wsdl:part element="tns:HIPMessageServerResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:portType name="HIPMessageServerService">
+  <wsdl:portType name="HL7MessageServerService">
     <wsdl:operation name="HIPMessageServer">
       <wsdl:input message="tns:HIPMessageServer" name="HIPMessageServer">
     </wsdl:input>
@@ -32,7 +32,7 @@
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="HIPMessageServerServiceSoapBinding" type="tns:HIPMessageServerService">
+  <wsdl:binding name="HL7MessageServerServiceSoapBinding" type="tns:HL7MessageServerService">
     <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="HIPMessageServer">
       <soap12:operation soapAction="HIPMessageServer" style="document"/>
@@ -45,7 +45,7 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="HL7MessageServerService">
-    <wsdl:port binding="tns:HIPMessageServerServiceSoapBinding" name="HL7MessageServerPort">
+    <wsdl:port binding="tns:HL7MessageServerServiceSoapBinding" name="HL7MessageServerPort">
       <soap12:address location="http://localhost:9001/hipMessageServer"/>
     </wsdl:port>
   </wsdl:service>
