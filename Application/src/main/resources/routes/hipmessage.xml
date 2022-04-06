@@ -9,14 +9,15 @@
     <fs:route id="hipmessage">
         <fs:from id="hipmessage" uri="cxf:bean:hipEndpoint"/>
         <fs:to id="hipMsgRequestHandler" uri="bean:hipMessageServiceHandler"/>
-        <fs:log message="${header.ACTION}"/>
-        <fs:log message="${body}"/>
         <fs:choice>
             <fs:when>
                 <fs:simple>${header.ACTION} == 'PatientRegistryAddRequest'</fs:simple>
-                <fs:to id="" uri="bean:processPatientRegistryAddRequest"/>
+                <fs:to id="addNewPatient" uri="bean:processPatientRegistryAddRequest"/>
+                <fs:to id="buildSQL" uri="bean:hipSqlBuilder"/>
+                <fs:to uri="jdbc:dataSource?useHeadersAsParameters=true"/>
             </fs:when>
         </fs:choice>
+
     </fs:route>
 
 </fs:routes>

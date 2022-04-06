@@ -1,4 +1,4 @@
-package com.fs.hc.ie.component.chis.processor;
+package com.fs.hc.ie.processor.hip;
 
 import com.fs.hc.ie.component.chis.exception.StandardNotSupportException;
 import com.fs.hc.ie.component.chis.model.HIPAction;

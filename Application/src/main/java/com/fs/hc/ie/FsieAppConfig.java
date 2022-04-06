@@ -1,22 +1,22 @@
 package com.fs.hc.ie;
 
-import com.fs.hc.ie.component.chis.processor.HipMessageServiceHandler;
-import com.fs.hc.ie.component.chis.processor.ProcessPatientRegistryAddRequest;
+import com.fs.hc.ie.processor.hip.HipMessageServiceHandler;
+import com.fs.hc.ie.processor.hip.HipSqlBuilder;
+import com.fs.hc.ie.processor.hip.ProcessPatientRegistryAddRequest;
 import org.apache.camel.component.cxf.CxfEndpoint;
-import org.apache.camel.component.cxf.DataFormat;
 import org.apache.camel.component.hl7.HL7MLLPCodec;
 import org.apache.camel.component.hl7.HL7MLLPNettyDecoderFactory;
 import org.apache.camel.component.hl7.HL7MLLPNettyEncoderFactory;
-import org.apache.cxf.binding.BindingConfiguration;
-import org.hl7.v3.HIPMessageServerResponse;
 import org.hl7.v3.HL7MessageServerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.naming.Binding;
-
 @Configuration
 public class FsieAppConfig {
+    @Autowired
+    HipMessageProperties hipMessageProperties;
+
     @Bean
     HL7MLLPNettyDecoderFactory hl7Decoder(){
         HL7MLLPNettyDecoderFactory hl7MLLPNettyDecoderFactory = new HL7MLLPNettyDecoderFactory();
@@ -42,9 +42,8 @@ public class FsieAppConfig {
     CxfEndpoint hipEndpoint(){
         CxfEndpoint cxfEndpoint = new CxfEndpoint();
         cxfEndpoint.setServiceClass(HL7MessageServerService.class);
-        cxfEndpoint.setAddress("http://localhost:9001/hipMessageServer");
+        cxfEndpoint.setAddress(hipMessageProperties.address);
         cxfEndpoint.setWsdlURL("wsdl/HIPMessageServer.wsdl");
-        //cxfEndpoint.setDataFormat(DataFormat.PAYLOAD);
 
         return cxfEndpoint;
     }
@@ -58,4 +57,9 @@ public class FsieAppConfig {
     ProcessPatientRegistryAddRequest processPatientRegistryAddRequest(){
         return new ProcessPatientRegistryAddRequest();
     }
+    @Bean
+    HipSqlBuilder hipSqlBuilder(){
+        return new HipSqlBuilder();
+    }
+
 }
