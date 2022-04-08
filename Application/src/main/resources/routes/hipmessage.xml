@@ -13,10 +13,10 @@
             <fs:when>
                 <fs:simple>${header.ACTION} == 'PatientRegistryAddRequest'</fs:simple>
                 <fs:to id="addNewPatient" uri="bean:processPatientRegistryAddRequest"/>
-                <fs:to id="buildSQL" uri="bean:hipSqlBuilder"/>
-                <fs:to uri="jdbc:dataSource?useHeadersAsParameters=true"/>
             </fs:when>
         </fs:choice>
+        <fs:to id="buildSQL" uri="bean:hipSqlBuilder"/>
+        <fs:to id="sendToDB" uri="jdbc:dataSource?useHeadersAsParameters=true"/>
 
     </fs:route>
 
