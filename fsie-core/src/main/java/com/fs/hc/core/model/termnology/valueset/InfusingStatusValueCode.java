@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.fs.hc.core.model.valueset;
+package com.fs.hc.core.model.termnology.valueset;
 
 public enum InfusingStatusValueCode {
     PUMP_STATUS_READY("pump-status-ready"), PUMP_STATUS_INFUSING("pump-status-infusing"), PUMP_STATUS_KVO("pump-status-kvo"),

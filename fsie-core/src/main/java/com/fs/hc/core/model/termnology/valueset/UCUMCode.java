@@ -1,6 +1,6 @@
-package com.fs.hc.core.model.valueset;
+package com.fs.hc.core.model.termnology.valueset;
 
-import com.fs.ie.model.Unit;
+import com.fs.hc.core.model.Unit;
 
 public class UCUMCode {
     public static Unit ML = new Unit("ml", "ml", "UCUM");

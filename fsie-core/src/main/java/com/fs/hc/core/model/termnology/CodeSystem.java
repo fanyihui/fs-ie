@@ -1,4 +1,4 @@
-package com.fs.hc.core.model;
+package com.fs.hc.core.model.termnology;
 
 public class CodeSystem {
     private String codeSystemOID;

@@ -1,4 +1,4 @@
-package com.fs.hc.core.model.valueset;
+package com.fs.hc.core.model.termnology.valueset;
 
 /**
  * Created by faen on 2018/2/5.

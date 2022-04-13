@@ -1,6 +1,6 @@
 package com.fs.hc.core.model.person;
 
-import com.fs.hc.core.model.valueset.GenderCode;
+import com.fs.hc.core.model.termnology.valueset.GenderCode;
 
 import java.util.Date;
 

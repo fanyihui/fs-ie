@@ -1,4 +1,4 @@
-package com.fs.hc.core.model.valueset;
+package com.fs.hc.core.model.termnology.valueset;
 
 public enum ObservationValueTypeCode {
     TX("TX"), NM("NM"), ST("ST"), CWE("CWE"), CNE("CNE");
