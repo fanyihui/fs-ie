@@ -1,6 +1,9 @@
 package com.fs.hc.core.model;
 
-public class Unit {
+import java.io.Serializable;
+
+public class Unit implements Serializable {
+
     private String unitId;
     private String unitText;
     private String unitSystemName;
